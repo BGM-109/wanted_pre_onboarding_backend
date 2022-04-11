@@ -7,9 +7,9 @@ class Funding(models.Model):
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=500)
     author = models.CharField(max_length=100)
-    target_price = models.IntegerField
-    session_price = models.IntegerField
-    end_date = models.DateTimeField
+    target_price = models.IntegerField(null=True)
+    session_price = models.IntegerField(null=True)
+    end_date = models.DateTimeField(null=True)
 
     def __str__(self):
         return self.title
