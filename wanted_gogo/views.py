@@ -1,7 +1,7 @@
 from xmlrpc.client import ResponseError
 from django.http import JsonResponse
 from .models import Funding
-from .serializers import FundingSerializers
+from .serializers import FundingSerializers, PutFundingSerializers
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
@@ -35,7 +35,7 @@ def funding_detail(request, id):
         serializer = FundingSerializers(funding)
         return Response(serializer.data)
     elif request.method == 'PUT':
-        serializer = FundingSerializers(funding, data = request.data)
+        serializer = PutFundingSerializers(funding, data = request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
