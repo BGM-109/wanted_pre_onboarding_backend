@@ -20,5 +20,6 @@ from wanted_gogo import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('fundings/', views.funding_list),
-    
+    path('funding/<int:id>', views.funding_detail),
+
 ]
